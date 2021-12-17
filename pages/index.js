@@ -11,11 +11,9 @@ import {
 import Head from "next/head";
 import data from "../utils/data";
 import styles from "../styles/Home.module.css";
-import Image from "next/image";
 import Layout from "../components/Layout";
 
 export default function Home() {
-  console.log(data.products);
   return (
     <Layout>
       <div>

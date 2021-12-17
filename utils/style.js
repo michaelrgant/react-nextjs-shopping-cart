@@ -4,7 +4,7 @@ const useStyles = makeStyles({
   navbar: {
     backgroundColor: "#203040",
     "& a": {
-      color: "#ffffff",
+      color: "#f0c040",
       marginLeft: 10,
     },
   },
@@ -12,7 +12,14 @@ const useStyles = makeStyles({
     minHeight: "80vh",
   },
   footer: {
-    textAlign: 'center'
+    textAlign: "center",
+  },
+  grow: {
+    flexGrow: 1
+  },
+  brand: {
+    fontWeight: "bold",
+    fontSize: "1.5rem"
   }
 });
 
