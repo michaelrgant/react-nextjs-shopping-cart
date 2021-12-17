@@ -8,10 +8,8 @@ import {
   CardActions,
   Button,
 } from "@material-ui/core";
-import Head from "next/head";
 import NextLink from "next/link";
 import data from "../utils/data";
-import styles from "../styles/Home.module.css";
 import Layout from "../components/Layout";
 
 export default function Home() {
