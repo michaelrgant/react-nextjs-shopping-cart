@@ -1,15 +1,16 @@
-import React, { Children } from 'react'
-import Head from 'next/head'
-import NextLink from "next/link"
-import useStyles from '../utils/style';
+import React, { Children } from "react";
+import Head from "next/head";
+import NextLink from "next/link";
+import useStyles from "../utils/style";
 import { AppBar, Container, Toolbar, Typography, Link } from "@mui/material";
 
-export default function Layout({ children }) {
+export default function Layout({ description, title, children }) {
   const classes = useStyles();
   return (
     <div>
       <Head>
-        <title>Next Ebazon</title>
+        <title>{title ? `${title} - Next Ebazon` : "Next Ebazon"}</title>
+        {description && <meta name="description" content={description}></meta>}
       </Head>
       <AppBar position="static" className={classes.navbar}>
         <Toolbar>
