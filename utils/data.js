@@ -2,6 +2,7 @@ const data = {
   products: [
     {
       name: "Red hooded sweatshirt",
+      slug: "red-hooded-sweatshirt",
       category: "Hoodie",
       image: "/Red-Hoodie.jpeg",
       price: 29.9,
@@ -13,6 +14,7 @@ const data = {
     },
     {
       name: "Purple hoodie",
+      slug: "purple-hoodie",
       category: "Hoodie",
       image: "/Purple-Hoodie-2.jpeg",
       price: 49.9,
@@ -24,6 +26,7 @@ const data = {
     },
     {
       name: "Tracksuit top",
+      slug: "tracksuit-top",
       category: "Track Suit",
       image: "/Orange-Hoodie.jpeg",
       price: 49.9,
@@ -35,6 +38,7 @@ const data = {
     },
     {
       name: "Purple/Back colorblock hoodie",
+      slug: "purple-black-colorblockk-hoodie",
       category: "Hoodie",
       image: "/Purple-Hoodie.jpeg",
       price: 25.9,
@@ -46,6 +50,7 @@ const data = {
     },
     {
       name: "Blue sweatshirt",
+      slug: "blue-sweatshirt",
       category: "Hoodie",
       image: "/Blue-Hoodie.jpeg",
       price: 10.9,
@@ -57,6 +62,7 @@ const data = {
     },
     {
       name: "Red/black jacket",
+      slug: "red-black-jack",
       category: "Hoodie",
       image: "/Red-Hoodie-3.jpeg",
       price: 49.9,
@@ -68,6 +74,7 @@ const data = {
     },
     {
       name: "Red sweatshirt",
+      slug: "red-sweatshirt",
       category: "Hoodie",
       image: "/Red-Hoodie-2.jpeg",
       price: 49.9,
@@ -79,6 +86,7 @@ const data = {
     },
     {
       name: "Green hooded jacket",
+      slug: "green-hooded-jacket",
       category: "jacket",
       image: "/green-Hoodie.jpeg",
       price: 49.9,
@@ -90,6 +98,7 @@ const data = {
     },
     {
       name: "BlueGray colorblock hoodie",
+      slug: "bluegray-colorblock-hooide",
       category: "Hoodie",
       image: "/Blue-Hoodie-2.jpeg",
       price: 49.9,
