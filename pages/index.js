@@ -16,6 +16,9 @@ import { useRouter } from "next/router";
 import db from "../utils/db";
 import { Store } from "../utils/Store";
 import Layout from "../components/Layout";
+import { useRouter } from "next/router";
+import { useContext } from "react";
+import { Store } from "../utils/Store"
 
 export default function Home(props) {
   const router = useRouter();
@@ -30,7 +33,7 @@ export default function Home(props) {
       return;
     }
     dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
-    router.push("/cart");
+    router.push("/cart")
   };
   return (
     <Layout>
