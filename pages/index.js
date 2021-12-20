@@ -8,8 +8,8 @@ import {
   CardActions,
   Button,
 } from "@material-ui/core";
-import Product from "../models/Products";
 import NextLink from "next/link";
+import Product from "../models/Products";
 import { useContext } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
