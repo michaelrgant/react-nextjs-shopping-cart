@@ -16,9 +16,6 @@ import { useRouter } from "next/router";
 import db from "../utils/db";
 import { Store } from "../utils/Store";
 import Layout from "../components/Layout";
-import { useRouter } from "next/router";
-import { useContext } from "react";
-import { Store } from "../utils/Store"
 
 export default function Home(props) {
   const router = useRouter();
