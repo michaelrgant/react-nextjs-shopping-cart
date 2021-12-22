@@ -22,15 +22,20 @@ export default function Home(props) {
   const { state, dispatch } = useContext(Store);
   const { products } = props;
   const addToCartHandler = async (product) => {
-    const existItem = state.cart.cartItems.find((x) => x._id === product._id);
-    const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${product._id}`);
-    if (data.countInStock < quantity) {
-      window.alert("Sorry. Product is out of stock");
-      return;
+    try {
+      const existItem = state.cart.cartItems.find((x) => x._id === product._id);
+      const quantity = existItem ? existItem.quantity + 1 : 1;
+      const { data } = await axios.get(`/api/products/${product._id}`);
+      if (data.countInStock < quantity) {
+        window.alert("Sorry. Product is out of stock");
+        return;
+      }
+
+    } catch (error) {
+      console.log(error)
     }
     dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
-    router.push("/cart")
+    router.push("/cart");
   };
   return (
     <Layout>
