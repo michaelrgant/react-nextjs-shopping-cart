@@ -210,11 +210,11 @@ export default function ProductScreen(props) {
                   />
                 </ListItem>
                 <ListItem>
-                  <Rating
+                  {/* <Rating
                     name="simple-controlled"
                     value={rating}
                     onChange={(e) => setRating(e.target.value)}
-                  />
+                  /> */}
                 </ListItem>
                 <ListItem>
                   <Button
