@@ -35,7 +35,7 @@ export default function Home(props) {
     } catch (error) {
       console.log(error)
     }
-
+    //change to quantity
    dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity: 1} });
     router.push("/cart");
 
