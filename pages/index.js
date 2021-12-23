@@ -35,8 +35,10 @@ export default function Home(props) {
     } catch (error) {
       console.log(error)
     }
+
    dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity: 1} });
     router.push("/cart");
+
   };
 
   return (
