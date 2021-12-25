@@ -16,7 +16,7 @@ import useStyles from '../utils/style';
 import Cookies from 'js-cookie';
 import { Controller, useForm } from 'react-hook-form';
 import { useSnackbar } from 'notistack';
-//import { getError } from '../utils/error';
+import { getError } from '../utils/error';
 
 export default function Login() {
   const {
@@ -26,7 +26,7 @@ export default function Login() {
   } = useForm();
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const router = useRouter();
-  const { redirect } = router.query; // login?redirect=/shipping
+  const { redirect } = router.query; 
   const { state, dispatch } = useContext(Store);
   const { userInfo } = state;
   useEffect(() => {
@@ -44,7 +44,7 @@ export default function Login() {
         password,
       });
       dispatch({ type: 'USER_LOGIN', payload: data });
-      Cookies.set('userInfo', data);
+      Cookies.set('userInfo', JSON.stringify(data));
       router.push(redirect || '/');
     } catch (err) {
       enqueueSnackbar(getError(err), { variant: 'error' });
