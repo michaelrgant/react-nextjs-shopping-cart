@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { useEffect } from "react";
+import {PayPalScriptProvider} from '@paypal/react-paypal-js'
 import { StoreProvider } from "../utils/Store";
 import { SnackbarProvider } from "notistack";
 
@@ -12,8 +13,11 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <SnackbarProvider anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
-    <StoreProvider>
+      <StoreProvider>
+        <PayPalScriptProvider deferLoading={true}>
+
       <Component {...pageProps} />
+        </PayPalScriptProvider>
     </StoreProvider>
     </SnackbarProvider>
   );
