@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useReducer } from 'react';
+import React, { useContext, useEffect, useReducer } from 'react';
 import dynamic from 'next/dynamic';
 import Layout from  '../../components/Layout';
 import { Store } from '../../utils/Store';
@@ -15,7 +15,6 @@ import {
   TableCell,
   Link,
   CircularProgress,
-  Button,
   Card,
   List,
   ListItem,
@@ -26,7 +25,7 @@ import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import useStyles from '../../utils/style';
 import { useSnackbar } from 'notistack';
 import { getError } from '../../utils/error';
-import Cookies from 'js-cookie';
+
 
 function reducer(state, action) {
   switch (action.type) {
@@ -70,9 +69,9 @@ function Order({ params }) {
   const {userInfo} = state;
 
 
-  const [{ loading, error, order, successPay }, dispatch] = useReducer(reducer, { loading: true, order, order: {}, error: '' });
+  const [{ loading, error, order, successPay }, dispatch] = useReducer(reducer, { loading: true, order: {}, error: '' });
 
-  const { shippingAddress, paymentMethod, orderItems, itemsPrice, taxPrice, shippingPrice, totalPrice, isPaid, paidAt, isDelivered, deliveredAt, } = order
+  const { shippingAddress, paymentMethod, orderItems, itemsPrice, taxPrice, shippingPrice, totalPrice, isPaid, paidAt, isDelivered, } = order
 
   useEffect(() => {
     if (!userInfo) {
@@ -84,7 +83,7 @@ function Order({ params }) {
         const { data } = await axios.get(`/api/orders/${orderId}`, { headers: { authorization: `Bearer ${userInfo.token}` } })
         dispatch({type: 'FETCH_SUCCESS', payload: data})
       } catch (error) {
-        dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
+        dispatch({ type: 'FETCH_FAIL', payload: getError(error) });
       }
     }
     if (!order._id || successPay || (order._id  && order._id !== orderId)) {
@@ -109,7 +108,7 @@ function Order({ params }) {
        loadPaypalScript();
     }
   }, [order, successPay]);
-  const { closeSnackbar, enqueueSnackbar } = useSnackbar();
+  const {  enqueueSnackbar } = useSnackbar();
 
   function createOrder(data, actions) {
     return actions.order

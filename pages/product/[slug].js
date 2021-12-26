@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import NextLink from 'next/link';
 import Image from 'next/image';
 import {
@@ -9,8 +9,6 @@ import {
   Typography,
   Card,
   Button,
-  TextField,
-  CircularProgress,
 } from '@material-ui/core';
 import Layout from '../../components/Layout';
 import useStyles from '../../utils/style';
@@ -18,61 +16,20 @@ import Product from '../../models/Products';
 import db from '../../utils/db';
 import axios from 'axios';
 import { Store } from '../../utils/Store';
- import { getError } from '../../utils/error';
 import { useRouter } from 'next/router';
- import { useSnackbar } from 'notistack';
+
 
 export default function ProductScreen(props) {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
-  const { userInfo } = state;
   const { product } = props;
   const classes = useStyles();
-   const { enqueueSnackbar } = useSnackbar();
 
-  const [reviews, setReviews] = useState([]);
-  const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState('');
-  const [loading, setLoading] = useState(false);
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      await axios.post(
-        `/api/products/${product._id}/reviews`,
-        {
-          rating,
-          comment,
-        },
-        {
-          headers: { authorization: `Bearer ${userInfo.token}` },
-        }
-      );
-      setLoading(false);
-      enqueueSnackbar('Review submitted successfully', { variant: 'success' });
-      fetchReviews();
-    } catch (err) {
-      setLoading(false);
-      enqueueSnackbar(getError(err), { variant: 'error' });
-    }
-  };
 
-  // const fetchReviews = async () => {
-  //   try {
-  //     const { data } = await axios.get(`/api/products/${product._id}/reviews`);
-  //     setReviews(data);
-  //   } catch (err) {
-  //     // enqueueSnackbar(getError(err), { variant: 'error' });
-  //   }
-  // };
-  // useEffect(() => {
-  //   fetchReviews();
-  // }, []);
 
-  // if (!product) {
-  //   return <div>Product Not Found</div>;
-  // }
+
+
 
    const addToCartHandler = async () => {
 

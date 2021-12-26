@@ -11,7 +11,7 @@ import {
 import NextLink from "next/link";
 import Product from "../models/Products";
 import { useContext } from "react";
-import axios from "axios";
+import axios from 'axios'
 import { useRouter } from "next/router";
 import db from "../utils/db";
 import { Store } from "../utils/Store";
@@ -22,11 +22,10 @@ export default function Home(props) {
   const { state, dispatch } = useContext(Store);
   const { products } = props;
   const addToCartHandler = async (product) => {
-    console.log(product._id)
     try {
-
-
-      console.log(data)
+  const existItem = state.cart.cartItems.find((x) => x._id === product._id);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+      const { data } = await axios.get(`/api/products/${product._id}`);
       if (data.countInStock < quantity) {
         window.alert("Sorry. Product is out of stock");
         return;
