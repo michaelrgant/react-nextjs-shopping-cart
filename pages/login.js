@@ -36,7 +36,7 @@ export default function Login() {
   }, []);
 
   const classes = useStyles();
-  //SUBMITHANDLER
+  //SUBMITHAN
   const submitHandler = async ({ email, password }) => {
     closeSnackbar();
     try {
