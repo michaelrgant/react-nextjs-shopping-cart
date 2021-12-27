@@ -20,6 +20,7 @@ const initialState = {
     : null,
 };
 
+//REDUCER
 function reducer(state, action) {
   switch (action.type) {
     case "DARK_MODE_ON":
